@@ -101,7 +101,7 @@ def fetch_sra_runinfo(file_in,file_out,platform_list=[],library_layout_list=[]):
     seen_ids = []; run_ids = []
     header = []
     make_dir(os.path.dirname(file_out))
-    ena_fields = get_ena_fields()
+  #  ena_fields = get_ena_fields()
     with open(file_in,"r") as fin, open(file_out,"w") as fout:
         for line in fin:
             db_id = line.strip()
@@ -117,7 +117,7 @@ def fetch_sra_runinfo(file_in,file_out,platform_list=[],library_layout_list=[]):
                             ids = gse_to_srx(db_id)
 
                         ## Resolve/expand these ids against SRA URL
-                        elif prefix in ['GSM', 'PRJNA', 'SAMN', 'SRR']:
+                        elif prefix in ['GSM', 'PRJNA', 'SAMN', 'SRR', 'SRP']:
                             ids = id_to_srx(db_id)
 
                         ## Resolve/expand these ids against ENA URL
